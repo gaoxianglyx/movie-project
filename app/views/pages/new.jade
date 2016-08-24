@@ -1,0 +1,45 @@
+extend ../layout
+
+block content
+    .container
+        h4 输入豆瓣ID
+        .form-group
+            input#douban
+        .row
+            form.form-horizontal(method="post", action="/admin/control/new", enctype="multipart/form-data")
+                input(type="hidden", name="movie[_id]", value="#{movie._id}")
+                .form-group
+                    label.col-sm-2.control-label(for="inputTitle") 电影名字
+                    .col-sm-10
+                        input#inputTitle.form-control(type="text", name="movie[title]", value="#{movie.title}")
+                .form-group
+                    label.col-sm-2.control-label(for="inputDoctor") 导演
+                    .col-sm-10
+                        input#inputDoctor.form-control(type="text", name="movie[doctor]", value="#{movie.doctor}")
+                .form-group
+                    label.col-sm-2.control-label(for="inputCountry") 国家
+                    .col-sm-10
+                        input#inputCountry.form-control(type="text", name="movie[country]", value="#{movie.country}")
+                .form-group
+                    label.col-sm-2.control-label(for="inputLanguage") 语言
+                    .col-sm-10
+                        input#inputLanguage.form-control(type="text", name="movie[language]", value="#{movie.language}")
+                .form-group
+                    label.col-sm-2.control-label(for="inputPoster") 海报
+                    .col-sm-10
+                        input#inputPoster.form-control(type="text", name="movie[poster]", value="#{movie.poster}")
+                .form-group
+                    label.col-sm-2.control-label(for="uploadPoster") 海报上传
+                    .col-sm-10
+                        input#inputPoster.form-control(type="file", name="uploadPoster")
+                .form-group
+                    label.col-sm-2.control-label(for="inputYear") 上映年份
+                    .col-sm-10
+                        input#inputYear.form-control(type="text", name="movie[year]", value="#{movie.year}")
+                .form-group
+                    label.col-sm-2.control-label(for="inputSummary") 简介
+                    .col-sm-10
+                        input#inputSummary.form-control(type="text", name="movie[summary]", value="#{movie.summary}")
+                .col-sm-offset-2.col-sm-10
+                    button.btn.btn-primary(type="submit") 提交
+    script(src="/js/admin.js")

@@ -1,0 +1,23 @@
+extend ../layout
+
+block content
+    .container
+        .row
+            //- each cat in categories
+            //-     .panel.panel-primary
+            //-         .panel-heading
+            //-             h3 #{cat.name}
+            //-         .panel-body
+            //-             if cat.movies&&cat.movie.length>0
+            each item in movies
+                .col-md-3
+                    .thumbnail(style="height:500px")
+                        a(href="/detail/#{item._id}")
+                            if item.poster.indexOf('http')>-1
+                                img(src="#{item.poster}", alt="#{item.title}")
+                            else
+                                img(src="/upload/#{item.poster}", alt="#{item.title}")
+                        .caption
+                            h3 #{item.title}
+                            p
+                                a.btn.btn-primary(href="/detail/#{item._id}", role="button") 观看详情
